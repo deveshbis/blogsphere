@@ -19,7 +19,7 @@
         <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
             <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
                 <h1 class="text-3xl font-extrabold text-white sm:text-5xl">
-                    <strong class="block font-extrabold text-rose-500"> Blogsphere </strong>
+                    <strong class="block font-extrabold text-rose-500"> Blog sphere </strong>
                 </h1>
 
                 <p class="mt-4 max-w-lg text-white sm:text-xl/relaxed">
