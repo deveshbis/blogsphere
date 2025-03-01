@@ -17,11 +17,12 @@
                 </h2>
 
                 <p class="hidden text-gray-500 md:mt-4 md:block">
-                    Want to share your ideas with the world? Learn how to create and publish your first blog post with ease. From writing tips to SEO optimization, we've got you covered!
+                    Want to share your ideas with the world? Learn how to create and publish your first blog post with
+                    ease. From writing tips to SEO optimization, we've got you covered!
                 </p>
 
                 <div class="mt-4 md:mt-8">
-                    <a href="#"
+                    <a href="{{ route('createBlogPost') }}"
                         class="inline-block rounded-sm bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:ring-3 focus:ring-yellow-400 focus:outline-hidden">
                         Create Blog Post
                     </a>

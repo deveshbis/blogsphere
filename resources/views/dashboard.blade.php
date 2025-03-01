@@ -20,6 +20,6 @@
 
   This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
 -->
-    <x-create-post />
+    <x-create-post-banner />
     <x-latest-blog />
 </x-app-layout>

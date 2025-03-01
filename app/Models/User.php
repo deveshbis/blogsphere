@@ -45,4 +45,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
+
+
+    // eta post table e bosbe
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }
