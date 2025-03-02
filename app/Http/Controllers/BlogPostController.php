@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class BlogPostController extends Controller
 {
+    public function showLatestBlog()
+    {
+        $posts = Post::latest()->get(); 
+        return view('dashboard', compact('posts'));
+    }
+
     public function createPost()
     {
         $categories = Category::all();
@@ -29,7 +35,7 @@ class BlogPostController extends Controller
             'content' => $request->input('content'),
             'category_id' => $request->input('category_id'),
             'image' => $request->input('image'),
-            'user_id' => Auth::id(), 
+            'user_id' => Auth::id(),
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Post created successfully!');
