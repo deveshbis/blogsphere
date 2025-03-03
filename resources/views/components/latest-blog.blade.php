@@ -9,6 +9,8 @@
 </head>
 
 <body>
+
+
     <div class="bg-gray-100 md:px-10 px-4 py-12 font-[sans-serif]">
         <div class="max-w-5xl max-lg:max-w-3xl max-sm:max-w-sm mx-auto">
             <h2 class="text-3xl font-extrabold text-gray-800 mb-8">Latest Blog Posts</h2>
@@ -16,6 +18,13 @@
                 @foreach($posts as $post)
                 <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-xs">
                     <img alt="{{ $post->title }}" src="{{ $post->image ?? asset('default-image.jpg') }}" class="h-56 w-full object-cover" />
+
+                    <div class="mt-2 px-3">
+                        <span
+                            class="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700">
+                            <p class="whitespace-nowrap text-sm">{{$post->category->name}}</p>
+                        </span>
+                    </div>
 
                     <div class="p-4 sm:p-6">
                         <a href="#">

@@ -11,7 +11,7 @@ class BlogPostController extends Controller
 {
     public function showLatestBlog()
     {
-        $posts = Post::latest()->get(); 
+        $posts = Post::latest()->get();
         return view('dashboard', compact('posts'));
     }
 
@@ -40,4 +40,11 @@ class BlogPostController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Post created successfully!');
     }
+
+    public function dashboardPage()
+    {
+        $posts = Post::where('user_id', Auth::id())->latest()->get();
+        return view('profile.dashboardPage', compact('posts'));
+    }
+
 }
