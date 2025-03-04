@@ -37,7 +37,6 @@
                 </option>
                 @endforeach
             </select>
-
             <input type="text" name="image" placeholder="Enter Image URL" value="{{ $post->image }}"
                 class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" />
 

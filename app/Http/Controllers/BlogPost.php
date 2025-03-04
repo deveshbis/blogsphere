@@ -44,4 +44,10 @@ class BlogPost extends Controller
 
         return redirect()->route('profile.dashboardPage')->with('success', 'Post deleted successfully!');
     }
+
+    public function blogDetails($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('blogDetails', compact('post'));
+    }
 }
