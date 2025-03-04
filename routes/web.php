@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogPost;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/blogDetails/{id}', [BlogPost::class, 'blogDetails'])->name('blogDetails');
 
     Route::post('/like/{post}', [LikeController::class, 'like'])->name('like');
+    Route::post('/comments', [CommentController::class, 'store']);
+    Route::get('/comments/{postId}', [CommentController::class, 'index']);
+    Route::get('/comments/count/{post_id}', [CommentController::class, 'getCommentCount']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
