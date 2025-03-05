@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function adminDashboard(){
+    public function adminDashboard()
+    {
         return view('admin.dashboard');
     }
 
@@ -26,6 +27,7 @@ class HomeController extends Controller
     }
 
     public function store(Request $request)
+
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -47,7 +49,10 @@ class HomeController extends Controller
 
     public function dashboardPage()
     {
-        $posts = Post::where('user_id', Auth::id())->latest()->get();
+        if (Auth::user()->role !== 'admin') {
+            return redirect('/home')->with('error', 'You do not have access to the admin dashboard.');
+        }
+        $posts = Post::latest()->get();
         return view('admin.dashboardPage', compact('posts'));
     }
 }

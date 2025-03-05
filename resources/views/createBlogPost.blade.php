@@ -11,7 +11,6 @@
 
 <body
     class="relative bg-[url(https://i.ibb.co.com/GyDw798/bg-blog-post.jpg)] bg-cover bg-center bg-no-repeat">
-
     <div class="max-w-md mx-auto mt-20 ">
         <div class="flex justify-between items-center mt-10">
             <h1 class="text-4xl text-rose-700 font-extrabold border-b-2 border-blue-500">Create Post</h1>
@@ -35,7 +34,7 @@
                 class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" required>
                 <option value="">Select Category</option>
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
 

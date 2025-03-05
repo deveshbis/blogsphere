@@ -19,7 +19,7 @@ class CommentController extends Controller
         $comment = Comment::create([
             'body' => $request->body,
             'post_id' => $request->post_id,
-            'user_id' => Auth::id(), 
+            'user_id' => Auth::id(),
         ]);
 
         return response()->json([
@@ -36,9 +36,9 @@ class CommentController extends Controller
     }
 
     public function getCommentCount($postId)
-{
-    $post = Post::findOrFail($postId);
-    $commentCount = $post->comments->count(); 
-    return response()->json(['comment_count' => $commentCount]);
-}
+    {
+        $post = Post::findOrFail($postId);
+        $commentCount = $post->comments->count();
+        return response()->json(['comment_count' => $commentCount]);
+    }
 }

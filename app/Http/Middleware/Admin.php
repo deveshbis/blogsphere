@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth; // Correct import for the Auth facade
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,7 +16,6 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Check if the user is authenticated and has the 'admin' role
         if (!Auth::check() || Auth::user()->role !== 'admin') {
             return redirect('/');
         }
