@@ -13,20 +13,22 @@
     <div class="bg-gray-100 md:px-10 px-4 py-12 font-[sans-serif]">
         <div class="max-w-5xl max-lg:max-w-3xl max-sm:max-w-sm mx-auto">
             <h2 class="text-3xl font-extrabold text-gray-800 mb-8">Latest Blog Posts</h2>
-            {{-- <div class="flex items-center justify-evenly mb-4">
-                @foreach ($categories as $category)
-                    <div>
-                        <span
-                            class="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700">
-                            <p class="whitespace-nowrap text-sm cursor-pointer">{{ $category->name }}</p>
-                        </span>
-                    </div>
-                @endforeach
-            </div> --}}
+            <form method="GET" action="{{ route('welcome') }}">
+                <div class="flex space-x-4 mb-3 justify-evenly">
+                    <button type="submit" name="category" value=""
+                        class="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700 {{ $selectedCategory === null ? 'bg-green-700 text-white' : 'bg-gray-200' }}">All</button>
+                    @foreach ($categories as $category)
+                        <button type="submit" name="category" value="{{ $category->id }}"
+                            class="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700  {{ $selectedCategory == $category->id ? 'bg-green-700 text-white' : 'bg-gray-200' }}">
+                            {{ $category->name }}
+                        </button>
+                    @endforeach
+                </div>
+            </form>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8" id="posts-container">
                 @foreach ($posts as $post)
-                    <div>
+                    <div class="post-item" data-category-id="{{ $post->category_id }}">
                         <div class="relative">
                             <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
                                 alt="{{ $post->title }}" src="{{ $post->image ?? asset('default-image.jpg') }}">
@@ -76,7 +78,6 @@
                                         </path>
                                     </svg>
                                     <span id="comment-count-{{ $post->id }}">{{ $post->comments->count() }}</span>
-                                    <!-- Display comment count -->
                                 </button>
 
                                 <button id="like-btn-{{ $post->id }}"
@@ -137,4 +138,3 @@
 </body>
 
 </html>
-
