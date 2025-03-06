@@ -9,16 +9,27 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'category_id', 'image', 'user_id'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
+    protected $fillable = [
+        'title',
+        'content',
+        'image',
+        'user_id',
+    ];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_post');
     }
 
     public function likes()
@@ -29,10 +40,5 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
     }
 }

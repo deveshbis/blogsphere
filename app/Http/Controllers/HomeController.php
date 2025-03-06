@@ -27,22 +27,23 @@ class HomeController extends Controller
     }
 
     public function store(Request $request)
-
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'category_id' => 'required|integer|exists:categories,id',
             'image' => 'nullable|string',
+            'categories' => 'required|array',
         ]);
 
-        Post::create([
+
+        $post = Post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'category_id' => $request->input('category_id'),
             'image' => $request->input('image'),
             'user_id' => Auth::id(),
         ]);
+
+        $post->categories()->attach($request->input('categories'));
 
         return redirect()->route('admin.dashboard')->with('success', 'Post created successfully!');
     }

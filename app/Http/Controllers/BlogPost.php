@@ -21,7 +21,6 @@ class BlogPost extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'category_id' => 'required|integer|exists:categories,id',
             'image' => 'nullable|string',
         ]);
 
@@ -30,7 +29,6 @@ class BlogPost extends Controller
         $post->update([
             'title' => $request->title,
             'content' => $request->content,
-            'category_id' => $request->category_id,
             'image' => $request->image,
         ]);
 

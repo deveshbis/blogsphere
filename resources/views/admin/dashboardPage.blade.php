@@ -37,7 +37,7 @@
 
                                 </p>
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                   
+
                                 </p>
                             </div>
                         </div>
@@ -68,9 +68,6 @@
                                 Blog Name
                             </th>
                             <th class="p-4 text-left text-sm font-medium text-white">
-                                Category
-                            </th>
-                            <th class="p-4 text-left text-sm font-medium text-white">
                                 Description
                             </th>
                             <th class="p-4 text-left text-sm font-medium text-white">
@@ -87,9 +84,7 @@
                             <td class="p-4 text-sm text-black">
                                 {{ $post->title }}
                             </td>
-                            <td class="p-4 text-sm text-black">
-                                {{ $post->category->name }}
-                            </td>
+
                             <td class="p-4 text-sm text-black">
                                 {{ Str::limit($post->content, 50, '...') }}
                             </td>
